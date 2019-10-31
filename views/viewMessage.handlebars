@@ -1,0 +1,39 @@
+{{> nav/nav-block}}
+
+<div id="home">
+    <div class="container theme-body">
+        <div class="row">
+            <div class="col col-md-12">
+                <h3 class="theme-title-div mb-4">Messages</h3>
+
+                {{#if messages}}
+                <ul id="example-list" class="list-group search">
+                    {{#each results}}
+                       <li class="list-group-item search__user">
+                        <div class="search__user--header">
+                            <div class="search__user--header-icon">
+                                <span class="fas fa-user search__user--header-icon-span"></span>
+                            </div>
+                            <h4 class="search__user--header-title">Message from {{this.senderName}}</h4>
+                        </div>
+                        <div class="search__user--content">
+                            <p>{{this.message}}</p>
+                        </div>
+                        <div class="search__user--buttons">
+                            <button class="btn btn-light btn-block rounded-0 message" data-recipient-id="{{this.senderId}}" data-sender-id="{{this.userId}}" data-toggle="modal" data-target="#message-modal">Reply</button>
+                            <button class="btn btn-light btn-block rounded-0 delete-message" data-message-id="{{this.id}}">Delete</button>
+                        </div>
+                    </li>
+                    {{/each}}
+                </ul>
+                {{else}}
+                <h4 class="no-results">No Messages T_T</h4>
+                {{/if}}
+                
+                <div id="userInfoForMap" data-address="{{userInfo.address}}" data-zipcode="{{userInfo.zipcode}}"
+                    data-city="{{userInfo.city}}" data-state="{{userInfo.state}}"></div>
+            </div>
+        </div>
+    </div>
+
+{{> modal/message-block sender=userInfo.id sender-name=userInfo.firstName}}

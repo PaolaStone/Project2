@@ -1,0 +1,33 @@
+.flex{
+    display: flex;
+    flex-direction: column;
+
+    &-center{
+        @extend .flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.flex-list-group-item{
+    flex: 1;
+    &:not(:first-child){
+        border-left: 1px solid #ddd;
+        padding-left: 1em;
+    }
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: $color-secondary !important;
+}
+
+.hidden{
+    display: none;
+}
+
+.no-results{
+    text-align: center;
+    color: #888;
+}

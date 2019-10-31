@@ -1,0 +1,48 @@
+{{#if isloggedin}}
+  {{> nav/nav-block}}
+{{/if}}
+
+<section id="bg">
+  <canvas id="canvas-basic"></canvas>
+</section>
+
+{{#if isloggedin}}
+<div class="container">
+  <div class="row">
+    <div class="col col-md-12 theme-cont">
+      <div class="theme-box">
+        <h1 class="text-center"><span class="fas fa-user-circle"></span></h1>
+        <h1 class="text-center">Welcome Back {{user.firstName}}!</h1>
+        <hr>
+        <a href="/search" class="btn btn-primary btn-100">Search for Buddies!</a>
+        <a href="/logout" class="btn btn-secondary btn-100">Logout</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{else}}
+
+<div id="main-container" class="container flex-center">
+  <div id="login-container" class="text-center" align="center">
+    <div class="theme-basic-box">
+      <div>
+        <h1>Wags With Friends</h1>
+        <hr>
+        <p>Login or create an account to use this app.</p>
+        <div class="flex">
+          <a class="btn btn-primary btn-100" href="#" id="login-modal2">Login</a>
+          
+          <a class="btn btn-outline-primary btn-100" href="/register" data-register={{register}}>Register</a>
+        </div>
+        <h5 id="login-err-msg"></h5>
+      </div>
+    </div>
+
+  </div>
+</div>
+ {{> modal/login-block}}
+{{/if}}
+
+
+
